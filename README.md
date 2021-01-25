@@ -1,24 +1,69 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# usersテーブル
+| Column             | Type    | Options                  |
+|--------------------|---------|--------------------------|
+| nickname           | string  | null:false               |
+| email              | string  | null:false, unique: true |
+| encrypted_password | string  | null:false               |
+| age_id             | integer | null:false               |
 
-Things you may want to cover:
+### Association
+* _ has_many :posts
+* _ has_many :chat_users
+* _ has_many :comments
 
-* Ruby version
+# postsテーブル
+| Column      | Type       | Options                       |
+|-------------|------------|-------------------------------|
+| title       | string     | null:false                    |
+| content     | text       | null:false                    |
+| category_id | integer    | null:false                    |
+| user_id     | references | null:false, foreign_key: true |
 
-* System dependencies
+### Association
+* _ belongs_to :user
+* _ has_many :comments
 
-* Configuration
+# commentsテーブル
+| Column  | Type       | Options                       |
+|---------|------------|-------------------------------|
+| content | text       | null:false                    |
+| user_id | references | null:false, foreign_key: true |
+| post_id | references | null:false, foreign_key: true |
 
-* Database creation
+### Association
+* _ belongs_to :user
+* _ belongs_to :post
 
-* Database initialization
+# chat_usersテーブル
+| Column      | Type       | Options                       |
+|-------------|------------|-------------------------------|
+| user_id     | references | null:false, foreign_key: true |
+| chat_id     | references | null:false, foreign_key: true |
+| category_id | integer | null:false                    |
 
-* How to run the test suite
+### Association
+* _ belongs_to :user
+* _ belongs_to :chat
 
-* Services (job queues, cache servers, search engines, etc.)
+# chatsテーブル
+| Column      | Type    | Options                       |
+|-------------|---------|-------------------------------|
+| name        | string  | null:false                    |
 
-* Deployment instructions
+### Association
+* _ has_many :users, through: chat_users
+* _ has_many :messages
 
-* ...
+
+# messagesテーブル
+| Column      | Type       | Options                       |
+|-------------|------------|-------------------------------|
+| content     | text       | null:false                    |
+| chat_id     | references | null:false, foreign_key: true |
+| user_id     | references | null:false, foreign_key: true |
+
+### Association
+* _ belongs_to :chat
+* _ belongs_to :user
