@@ -1,1 +1,19 @@
-<h1>あああ</h1>
+<header class="header">
+  <div class="header__title">
+    <%= link_to "免疫力ブログ", "" , class: "header__title--text" %>
+  </div>
+  <div class="header__right">
+    <%# <% if user_signed_in? %>
+      <%= link_to "名前を表示", "", class: "header__right--btn" %>
+      <%= link_to "新規投稿", "", class: "header__right--btn" %>
+      <%= link_to "ログアウト", "", method: :delete, class: "header__right--btn" %>
+    <%# <% else %>
+      <%# <%= link_to "ログイン", new_user_session_path, class: "header__right--btn" %>
+      <%# <%= link_to "新規登録", new_user_registration_path, class: "header__right--btn" %>
+    <%# <% end %>
+  </div>
+</header>
+<div class="header__second">
+  <%= link_to "記事を表示", "", class: "header__second--left" %>
+  <%= link_to "投稿を表示", "", class: "header__second--right" %>
+</div>
