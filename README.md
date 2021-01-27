@@ -1,12 +1,12 @@
 # README
 
 # usersテーブル
-| Column             | Type    | Options                  |
-|--------------------|---------|--------------------------|
-| nickname           | string  | null:false               |
-| email              | string  | null:false, unique: true |
-| encrypted_password | string  | null:false               |
-| age_id             | integer | null:false               |
+| Column             | Type   | Options                  |
+|--------------------|--------|--------------------------|
+| nickname           | string | null:false               |
+| email              | string | null:false, unique: true |
+| encrypted_password | string | null:false               |
+| birth_date         | date   | 　　　　　　               |
 
 ### Association
 * _ has_many :posts
@@ -41,16 +41,16 @@
 |-------------|------------|-------------------------------|
 | user_id     | references | null:false, foreign_key: true |
 | chat_id     | references | null:false, foreign_key: true |
-| category_id | integer | null:false                    |
+| category_id | integer    | null:false                    |
 
 ### Association
 * _ belongs_to :user
 * _ belongs_to :chat
 
 # chatsテーブル
-| Column      | Type    | Options                       |
-|-------------|---------|-------------------------------|
-| name        | string  | null:false                    |
+| Column | Type    | Options    |
+|--------|---------|------------|
+| name   | string  | null:false |
 
 ### Association
 * _ has_many :users, through: chat_users
@@ -58,11 +58,11 @@
 
 
 # messagesテーブル
-| Column      | Type       | Options                       |
-|-------------|------------|-------------------------------|
-| content     | text       | null:false                    |
-| chat_id     | references | null:false, foreign_key: true |
-| user_id     | references | null:false, foreign_key: true |
+| Column  | Type       | Options                       |
+|---------|------------|-------------------------------|
+| content | text       | null:false                    |
+| chat_id | references | null:false, foreign_key: true |
+| user_id | references | null:false, foreign_key: true |
 
 ### Association
 * _ belongs_to :chat
