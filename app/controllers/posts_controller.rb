@@ -1,8 +1,7 @@
 class PostsController < ApplicationController
-before_action :authenticate_user!, only:[:new, :create]
+  before_action :authenticate_user!, only: %i[new create]
 
-  def index
-  end
+  def index; end
 
   def new
     @post = Post.new
@@ -19,8 +18,8 @@ before_action :authenticate_user!, only:[:new, :create]
   end
 
   private
+
   def post_params
     params.require(:post).permit(:title, :content, :category_id, :image).merge(user_id: current_user.id)
   end
-
 end
