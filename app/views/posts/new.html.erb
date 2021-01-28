@@ -7,5 +7,10 @@
   <%= form.text_area :content, placeholder: :ブログ本文, class: :form__text %>
   <p>画像を選択してください</p>
   <%= form.file_field :image %>
+  <div class="weight-bold-text">
+    カテゴリー
+    <span class="indispensable">必須</span>
+  </div>
+  <%= form.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
   <%= form.submit '投稿する', class: :form__btn %>
 <% end %>
