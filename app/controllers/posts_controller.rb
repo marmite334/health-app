@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: %i[new create]
+  before_action :authenticate_user!, only: %i[new create ]
 
   def index
     @post = Post.order('created_at DESC')
@@ -25,6 +25,16 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    if @post.update(post_params)
+      @post.save
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
 
   private
