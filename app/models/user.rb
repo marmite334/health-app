@@ -10,4 +10,5 @@ class User < ApplicationRecord
     validates :birth_date
   end
   has_many :post
+  has_many :comments
 end
