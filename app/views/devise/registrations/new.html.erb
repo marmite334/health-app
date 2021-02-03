@@ -18,7 +18,7 @@
       </div>
       <div class="field">
         <%= f.label :nickname, "ユーザー名(最大6文字)" %><br />
-          <%= f.text_area :nickname, class:"input-default", id:"nickname", placeholder:"例) furima太郎", maxlength:"40" %>
+          <%= f.text_area :nickname, class:"input-default", id:"nickname", placeholder:"例) furima太郎", maxlength:"6" %>
       </div>
       <div class="field">
     <div class='form-text-wrap'>
@@ -32,7 +32,7 @@
                     id:"birth-date",
                     use_month_numbers: true,
                     prompt:'--',
-                    start_year: 1930,
+                    start_year: (Time.now.year - 90),
                     end_year: (Time.now.year - 5),
                     date_separator: '%s'),
                   "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>

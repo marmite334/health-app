@@ -6,7 +6,7 @@
 | nickname           | string | null:false               |
 | email              | string | null:false, unique: true |
 | encrypted_password | string | null:false               |
-| birth_date         | date   |                          |
+| birth_date         | date   | null:false               |
 
 ### Association
 * _ has_many :posts
