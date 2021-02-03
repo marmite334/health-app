@@ -52,7 +52,14 @@ RSpec.describe Post, type: :model do
         expect(@post.errors.full_messages).to include("Category Select")
       end
 
+      it '紐づくユーザーが存在しないと投稿に失敗する' do
+        @post.user = nil
+        @post.valid?
+        expect(@post.errors.full_messages).to include("User must exist")
+      end
+
     end
 
   end
+
 end
