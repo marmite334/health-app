@@ -4,14 +4,14 @@
       <li>
     <div>
       <h3>
-        <%= link_to chat.user.name, '#' %>
+        <%= link_to chat.user.nickname, '#' %>
       </h3>
       <span>
-        <% chat.created_at %>
+        <%= chat.created_at %>
       </span>
       <div>
         <span>
-        <% chat.text %>
+        <%= chat.text %>
         </span>
       </div>
     </div>
@@ -35,12 +35,12 @@
   </li>
 <% end %>
 
-<%= form_with url: "/posts", method: :post, local: true do |form| %>
+<%= form_with model: @chat, url: chats_path, present: true do |f| %>
   <div class="field">
-    <%= form.label :text, "投稿する" %><br />
-    <%= form.text_field :text %>
+    <%= f.label :text, "投稿する" %><br />
+    <%= f.text_field :text %>
   </div>
   <div class="actions">
-    <%= form.submit "送信する", class: :form__btn  %>
+    <%= f.submit "送信する", class: :form__btn  %>
   </div>
 <% end %> 
