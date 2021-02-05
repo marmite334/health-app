@@ -1,1 +1,37 @@
-<h1>チャットルームの一覧</h1>
+<h1>フリーチャット</h1>
+<% if @chat.present? %>
+  <% @chat.each do |chat| %>
+      <li>
+    <div>
+      <h3>
+        <%= link_to chat.user.name, '#' %>
+      </h3>
+      <span>
+        <% chat.created_at %>
+      </span>
+      <div>
+        <span>
+        <% chat.text %>
+        </span>
+      </div>
+    </div>
+  </li>
+  <% end %>
+<% else %>
+  <li>
+    <div>
+      <h3>
+        <%= link_to 'ユーザーネーム', '#' %>
+      </h3>
+      <span>
+        投稿日時
+      </span>
+      <div>
+        <span>
+        本文を表示
+        </span>
+      </div>
+    </div>
+  </li>
+<% end %>
+

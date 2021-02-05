@@ -1,8 +1,7 @@
 class ChatsController < ApplicationController
 
   def index
-    @chat = Chat.new
-    @category = Category.new
+    @chat = Chat.order('created_at DESC')
   end
 
 end
