@@ -15,4 +15,5 @@ class Category < ActiveHash::Base
 
   include ActiveHash::Associations
   has_many :post
+  belongs_to :chat
 end
