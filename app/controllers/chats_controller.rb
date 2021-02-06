@@ -13,6 +13,17 @@ class ChatsController < ApplicationController
     end
   end
 
+  def destroy
+    @chat = Chat.find(params[:id])
+    if current_user.id == @chat.user.id
+      if @chat.destroy
+        redirect_to chats_path(@chat)
+      else
+        render :index
+      end
+    end
+  end
+
   private
   def chat_params
     params.require(:chat).permit(:text).merge(user_id: current_user.id)

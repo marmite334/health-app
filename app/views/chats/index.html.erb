@@ -9,6 +9,11 @@
       <span>
         <%= chat.created_at %>
       </span>
+      <% if current_user.id == chat.user.id %>
+        <span>
+          <%= link_to '削除', chat_path(chat.id), method: :delete %>
+        </span>
+      <% end %>
       <div>
         <span>
         <%= chat.text %>
