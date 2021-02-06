@@ -1,15 +1,26 @@
 <h1>フリーチャット</h1>
+<% if user_signed_in? %>
+  <%= form_with model: @chat, url: chats_path, present: true do |f| %>
+    <div class="field">
+      <%= f.label :text, "投稿する" %><br />
+      <%= f.text_field :text %>
+    </div>
+    <div class="actions">
+      <%= f.submit "送信する", class: :form__btn  %>
+    </div>
+  <% end %>
+<% end %> 
 <% if @chat.present? %>
   <% @chat.each do |chat| %>
       <li>
     <div>
-      <h3>
-        <%= link_to chat.user.nickname, '#' %>
-      </h3>
+      <span>
+        <%= link_to chat.user.nickname, user_path(chat.user.id) %>
+      </span>
       <span>
         <%= chat.created_at %>
       </span>
-      <% if current_user.id == chat.user.id %>
+      <% if user_signed_in? && current_user.id == chat.user.id %>
         <span>
           <%= link_to '削除', chat_path(chat.id), method: :delete %>
         </span>
@@ -39,13 +50,3 @@
     </div>
   </li>
 <% end %>
-
-<%= form_with model: @chat, url: chats_path, present: true do |f| %>
-  <div class="field">
-    <%= f.label :text, "投稿する" %><br />
-    <%= f.text_field :text %>
-  </div>
-  <div class="actions">
-    <%= f.submit "送信する", class: :form__btn  %>
-  </div>
-<% end %> 
