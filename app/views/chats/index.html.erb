@@ -20,7 +20,7 @@
       <span>
         <%= chat.created_at %>
       </span>
-      <% if user_signed_in? && current_user.id == chat.user.id %>
+      <% if current_user.id == chat.user.id %>
         <span>
           <%= link_to '削除', chat_path(chat.id), method: :delete %>
         </span>
