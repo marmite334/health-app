@@ -1,4 +1,5 @@
 class ChatsController < ApplicationController
+  before_action :authenticate_user!
 
   def index
     @chat = Chat.order('created_at DESC')
