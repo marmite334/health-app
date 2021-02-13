@@ -2,7 +2,7 @@ class ChatsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @chats = Chat.all.order(id: "DESC")
+    @chats = Chat.all.order(id: "DESC").take(100)
   end
 
   def create
