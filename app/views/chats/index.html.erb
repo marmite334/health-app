@@ -1,18 +1,19 @@
 <h1>フリーチャット</h1>
-<% if user_signed_in? %>
-  <%= form_with model: @chat, url: chats_path, present: true do |f| %>
-    <div class="field">
-      <%= f.label :text, "投稿する" %><br />
-      <%= f.text_field :text %>
-    </div>
-    <div class="actions">
-      <%= f.submit "送信する", class: :form__btn  %>
-    </div>
-  <% end %>
-<% end %> 
-<% if @chat.present? %>
-  <% @chat.each do |chat| %>
-      <li>
+<%= form_with url: "/chats", method: :post,id: "form" do |f| %>
+  <div class="field">
+    <%= f.text_field :text, id: "text" %>
+  </div>
+  <div class="actions">
+    <%= f.submit "送信する", class: :form__btn, id: "submit" %>
+  </div>
+<% end %>
+
+<div id="list">
+</div>
+
+<% if @chats.present? %>
+  <% @chats.each do |chat| %>
+  <li>
     <div>
       <span>
         <%= link_to chat.user.nickname, user_path(chat.user.id) %>

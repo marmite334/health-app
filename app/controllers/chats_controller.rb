@@ -2,15 +2,14 @@ class ChatsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @chat = Chat.order('created_at DESC')
+    @chats = Chat.all.order(id: "DESC")
   end
 
   def create
-    @chat = Chat.new(chat_params)
-    if @chat.valid?
-      @chat.save
-    else
-      render :index
+    chat = Chat.new(chat_params)
+    if chat.valid?
+      chat.save
+      render json:{ chat: chat}
     end
   end
 
@@ -18,7 +17,7 @@ class ChatsController < ApplicationController
     @chat = Chat.find(params[:id])
     if current_user.id == @chat.user.id
       if @chat.destroy
-        redirect_to chats_path(@chat)
+        redirect_to action: :index
       else
         render :index
       end
@@ -27,7 +26,7 @@ class ChatsController < ApplicationController
 
   private
   def chat_params
-    params.require(:chat).permit(:text).merge(user_id: current_user.id)
+    params.permit(:text).merge(user_id: current_user.id)
   end
 
 end
