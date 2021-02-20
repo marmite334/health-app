@@ -1,0 +1,15 @@
+.side-bar{
+  height: 100vh;
+  width: 210px;
+  background-color: #55c500;
+  color: #fff;
+  display: flex;
+  &__nav{
+    margin-left:15px;
+    line-height: 56px;
+    &--btn{
+      text-decoration: none;
+      color: #fff;
+    }
+  }
+}
