@@ -1,5 +1,5 @@
-<%# <%= render partial: "error_messages", locals: { post: @post } %>
 <%= form_with model: @post, class: :form, local: true do |form| %>
+  <%= render 'shared/error_messages', model: @post %>
   <%= form.text_field :title, placeholder: :タイトル, class: :form__title %>
   <%= form.text_area :content, placeholder: :ブログ本文, class: :form__text %>
   <p>画像を選択してください</p>
