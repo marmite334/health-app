@@ -5,10 +5,70 @@ body{
 
   .wrapper{
     display: flex;
-    
+
+    // 一覧表示ページ
     .post {
-      width: calc(100% - 210px);
+      width: calc(100vw - 120px);
+      height: 100vh;
       background-color: #ffffff ;
+
+      &__new{
+        position: fixed;
+        text-align: center;
+
+        &__btn{
+          width: 100vw;
+          height: 30px;
+          display: inline-block;
+          color: #fff;
+          text-decoration: none;
+          user-select: none;
+          background: #55c500;
+          border: 1px #55c500 solid;
+          border-radius: 3px;
+          box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 2px 0 rgba(0, 0, 0, 0.12);
+          transition: 0.2s ease;
+        }
+      }
+
+      &__list{
+        height: 120px;
+        text-align: center;
+      }
+
+      &__wrap{
+        height: calc(100vh - 120px - 38px);
+        overflow: scroll;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: center;
+        background-color: #FAFAFA;
+      }
+
+      .card{
+        margin-left: 10px;
+
+        &__img{
+          width: 200px;
+          height: 200px;
+          object-fit: fill;
+        }
+
+        &__title{
+          text-decoration: none;
+          color: #3b4043;
+          font-size: 20px;
+          margin-bottom: 8px;
+          font-weight: bold;
+        }
+
+        &__user_name{
+          text-decoration: none;
+          color: #3b4043;
+
+        }
+      }
     }
   }
 //   // 新規登録

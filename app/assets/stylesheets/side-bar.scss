@@ -1,9 +1,10 @@
 .side-bar{
   height: 100vh;
-  width: 210px;
+  width: 120px;
   background-color: #55c500;
   color: #fff;
   display: flex;
+  text-align: center;
   &__nav{
     margin-left:15px;
     line-height: 56px;

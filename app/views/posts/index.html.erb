@@ -3,7 +3,15 @@
     <%= render "shared/side-bar" %>
   </div>
   <div class="post">
-    <%= link_to "新規投稿", new_post_path %>
+    <div class="post__head">
+      <h3 class="post__list">
+        作成された記事の一覧
+      </h3>
+      <div class="post__new">
+        <%= link_to "新規投稿", new_post_path, class:"post__new__btn" %>
+      </div>
+    </div>
+    <div class="post__wrap">
     <% @post.each do |post| %>
       <%= render partial: "posts/post", locals: { post: post } %>
     <% end %>
