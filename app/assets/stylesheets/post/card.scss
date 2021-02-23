@@ -1,0 +1,29 @@
+.card {
+  margin-top: 50px;
+  width: calc((100vw - 120px - 20px) / 4);
+
+  &__body {
+    height: 100%;
+    width: 100%;
+  }
+
+  &__img {
+    width: 200px;
+    height: 200px;
+    object-fit: fill;
+  }
+
+  &__title {
+    text-decoration: none;
+    color: #3b4043;
+    font-size: 20px;
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
+
+  &__user_name {
+    text-decoration: none;
+    color: #3b4043;
+
+  }
+}

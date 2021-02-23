@@ -1,13 +1,42 @@
-<%= form_with model: @post, class: :form, local: true do |form| %>
-  <%= render 'shared/error_messages', model: @post %>
-  <%= form.text_field :title, placeholder: :タイトル, class: :form__title %>
-  <%= form.text_area :content, placeholder: :ブログ本文, class: :form__text %>
-  <p>画像を選択してください</p>
-  <%= form.file_field :image %>
-  <div class="weight-bold-text">
-    カテゴリー
-    <span class="indispensable">必須</span>
+<div class="new__post__content">
+  <header class="new__post__header">
+    <%= link_to "戻る", root_path, class:"form__btn" %>
+  </header>
+  <div class="new__post__main">
+    <%= form_with model: @post, local: true do |form| %>
+      <%= render 'shared/error_messages', model: @post %>
+      <div class="weight-bold-text">
+        タイトル
+        <span class="indispensable">
+          必須
+        </span>
+      </div>
+      <%= form.text_field :title, class:"posts-title", placeholder:"タイトル(最大十文字)", maxlength:"10" %>
+      <div class="weight-bold-text">
+        本文
+        <span class="indispensable">
+          必須
+        </span>
+      </div>
+      <%= form.text_area :content, class:"posts-text", placeholder:"ブログ本文" %>
+      <div class="click-upload">
+        <p>
+          クリックしてファイルをアップロード（任意）
+        </p>
+        <%= form.file_field :image, id:"item-image" %>
+      </div>
+      <div>
+        カテゴリー
+        <span class="indispensable">
+          必須
+        </span>
+      </div>
+      <div class="items-detail">
+        <%= form.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+      </div>
+      <div class="form__btn-content">
+        <%= form.submit '投稿する', class:"form__btn-submit" %>
+      </div>
+    <% end %>
   </div>
-  <%= form.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
-  <%= form.submit '投稿する', class: :form__btn %>
-<% end %>
+</div>

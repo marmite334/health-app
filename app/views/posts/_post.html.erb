@@ -1,7 +1,11 @@
 <div class="card">
-  <%= image_tag post.image, class: :card__img if post.image.present? %>
   <div class="card__body">
-    <%= link_to post.title, post_path(post), class:"card__title" %>
+    <p>
+      <%= image_tag post.image, class:"card__img" if post.image.present? %>
+    </p>
+    <p>
+      <%= link_to post.title, post_path(post), class:"card__title" %>
+    </p>
     <p>
       <%= link_to post.user.nickname, user_path(post.user.id), class:"card__user_name" %>
     </p>
