@@ -38,14 +38,14 @@
           </div>
         <% end %> 
       <% end %>
-      <ul class ="comment__lists">
+      <div class ="comment__lists">
         <% @comments.each do |comment| %>
-          <li class ="comment__list">
+          <div class ="comment__list">
             <%= link_to comment.user.nickname, user_path(comment.user_id), class:"form__btn" %>
             <%= comment.content %>
-          </li>
+          </div>
         <% end %>
-      </ul>
+      </div>
     </div>
   </div>
 </div>
