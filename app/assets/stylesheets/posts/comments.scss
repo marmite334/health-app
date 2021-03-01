@@ -1,0 +1,19 @@
+.comment {
+  text-align: center;
+  &__field {
+    padding: 10px;
+  }
+
+  &__title {
+    font-weight: bold;
+    padding: 10px;
+  }
+
+  &__form {
+    padding: 10px;
+  }
+  
+  &__list{
+    padding: 10px;
+  }
+}
