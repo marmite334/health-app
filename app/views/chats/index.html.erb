@@ -1,42 +1,49 @@
 <body>
-  <div class="contents">
-    <div class="form-area">
-      <%= form_with url: "/chats", method: :post,id: "form" do |f| %>
-        <div class="field">
-          <%= f.text_field :text, id: "text" %>
-        </div>
-        <div class="actions">
-          <%= f.submit "投稿する", class: :form__btn, id: "submit" %>
-        </div>
-      <% end %>
+  <div class ="wrapper">
+    <div class ="side-bar">
+      <%= render "shared/side-bar" %>
     </div>
-    <% if @chats.present? %>
-      <% @chats.each do |chat| %>
-        <div class="chat">
-          <%= link_to chat.user.nickname, user_path(chat.user.id) %>
-          <span>
-            <%= chat.created_at %>
-          </span>
-          <% if current_user.id == chat.user.id %>
-            <span>
-              <%= link_to '削除', chat_path(chat.id), method: :delete %>
-            </span>
-          <% end %>
-          <div>
-            <%= chat.text %>
+    <div class ="chat">
+      <div class="form-area">
+        <%= form_with url: "/chats", method: :post,id: "form" do |f| %>
+          <div class="field">
+            <%= f.text_field :text, id: "text" %>
           </div>
-        </div>
-      <% end %>
-    <% else %>
-      <div>
-        <%= link_to 'ユーザーネーム', '#' %>
-        <span>
-          投稿日時
-        </span>
-        <div>
-          本文を表示
-        </div>
+          <div class="actions">
+            <%= f.submit "投稿する", class: :form__btn, id: "submit" %>
+          </div>
+        <% end %>
       </div>
-    <% end %>
+      <div class ="chat__wrap">
+        <% if @chats.present? %>
+          <% @chats.each do |chat| %>
+            <div class="chat__wrap--content">
+              <%= link_to chat.user.nickname, user_path(chat.user.id) %>
+              <span>
+                <%= chat.created_at %>
+              </span>
+              <% if current_user.id == chat.user.id %>
+                <span>
+                  <%= link_to '削除', chat_path(chat.id), method: :delete %>
+                </span>
+              <% end %>
+              <div>
+                <%= chat.text %>
+              </div>
+            </div>
+          <% end %>
+        <% else %>
+          <div>
+            <%= link_to 'ユーザーネーム', '#' %>
+            <span>
+              投稿日時
+            </span>
+            <div>
+              本文を表示
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
 </body>

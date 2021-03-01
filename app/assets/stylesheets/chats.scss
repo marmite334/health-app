@@ -6,7 +6,19 @@
 }
 
 .chat {
-  background-color: #efefef;
-  margin-bottom: 8px;
-  padding: 8px;
+  width: calc(100vw - 120px);
+  height: 100vh;
+
+  &__wrap {
+    height: calc(100vh - 100px);
+    overflow: scroll;
+    margin: 10px;
+
+    &--content {
+      background-color: #efefef;
+      margin-bottom: 8px;
+      padding: 8px;
+      margin: 10px;
+    }
+  }
 }
