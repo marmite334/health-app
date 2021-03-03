@@ -1,7 +1,11 @@
-<div class="contents row">
-  <p><%= @user.nickname %>さんの投稿一覧</p>
-  <%# 記事を部分テンプレートにしたら実装する %>
-  <%# <% @posts.each do |post| %>
-    <%# <%= render partial: "posts/post", locals: { post: post } %>
-  <%# <% end %>
+<div class="user">
+  <header class="user__show__header">
+    <%= link_to "トップページ", root_path, class:"form__btn" %>
+  </header>
+  <h2>
+    <%= @user.nickname %>さんの投稿一覧
+  </h2>
+  <div class ="user__show__wrap">
+    <%= render partial: "posts/post", collection: @user.post %>
+  </div>
 </div>

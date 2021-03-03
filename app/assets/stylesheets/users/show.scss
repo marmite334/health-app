@@ -1,0 +1,17 @@
+.user {
+  text-align: center;
+
+  &__show__header {
+    height: 65px;
+    background-color: #55c500;
+  }
+
+  &__show__wrap{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #FAFAFA;
+    padding: 10px;
+  }
+}
