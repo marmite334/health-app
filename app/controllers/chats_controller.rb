@@ -2,14 +2,14 @@ class ChatsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @chats = Chat.all.order(id: "DESC").take(100)
+    @chats = Chat.all.order(id: 'DESC').take(100)
   end
 
   def create
     chat = Chat.new(chat_params)
     if chat.valid?
       chat.save
-      render json:{ chat: chat}
+      render json: { chat: chat }
     end
   end
 
@@ -25,8 +25,8 @@ class ChatsController < ApplicationController
   end
 
   private
+
   def chat_params
     params.permit(:text).merge(user_id: current_user.id)
   end
-
 end

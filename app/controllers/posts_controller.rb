@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: %i[new create edit update]
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: %i[show edit update destroy]
 
   def index
     @post = Post.order('created_at DESC')
@@ -25,13 +25,12 @@ class PostsController < ApplicationController
     @comments = @post.comments.includes(:user)
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @post.update(post_params)
       @post.save
-      redirect_to root_path
+      redirect_to post_path(@post.id)
     else
       render :edit
     end

@@ -1,41 +1,51 @@
-<div class="postTitle">
-  <%= @post.title %>
-</div>
-<div class="postDate">
-  <%= @post.created_at %>
-</div>
-<div class="postAuthor">
-</div>
-<div class="postManage">
-  <% if user_signed_in? && current_user.id == @post.user_id %>
-    <%= link_to "編集", edit_post_path(@post.id), class: "postManage__edit" %>
-    <%= link_to "削除", post_path(@post.id), method: :delete, class: "postManage__delete" %>
-  <% end %>
-</div>
-<div class="postImage">
-  <%= image_tag @post.image.variant(resize: '300x300') if @post.image.present? %>
-</div>
-<div class="postText">
-  <%= simple_format @post.content %>
-</div>
-<div>
-  <% if user_signed_in? %>
-    <%= form_with model: [@post, @comment], local: true do |f|%>
-      <div class="field">
-        <%= f.label :content, "コメント" %><br />
-        <%= f.text_field :content %>
+<div class ="wrapper">
+  <div class ="side-bar">
+    <%= render "shared/side-bar" %>
+  </div>
+  <div class ="post">
+    <div class ="post__show">
+      <h1>
+        <%= @post.title %>
+      </h1>
+      <div class="post__edit">
+        <% if user_signed_in? && current_user.id == @post.user_id %>
+          <%= link_to "編集", edit_post_path(@post.id), class:"form__btn" %>
+        <%= link_to "削除", post_path(@post.id), method: :delete, class:"form__btn" %>
+        <% end %>
       </div>
-      <div class="actions">
-        <%= f.submit "送信する", class: :form__btn  %>
+      <div class ="post__detail">
+        投稿日時：<%= @post.created_at %>
       </div>
-    <% end %> 
-  <% end %>
-  <ul class="comments_lists">
-    <% @comments.each do |comment| %>
-      <li class="comments_list">
-        <%= comment.content %>
-        <%= link_to comment.user.nickname, user_path(comment.user_id), class: :comment_user %>
-      </li>
-    <% end %>
-  </ul>
+      <div class ="post__text">
+        <%= simple_format @post.content %>
+      </div>
+      <div class ="post__detail">
+        カテゴリー
+        <a href=“#”><%= @post.category.name%></a>
+      </div>
+    </div>
+    <div class ="comment">
+      <% if user_signed_in? %>
+        <%= form_with model: [@post, @comment], local: true do |f|%>
+          <div class ="comment__field">
+            <div class ="comment__title">
+              <%= f.label :content, "コメント", class: "comment__title" %>
+            </div>
+            <div class ="comment__form">
+              <%= f.text_field :content %>
+            </div>
+            <%= f.submit "コメントする", class:"form__btn" %>
+          </div>
+        <% end %> 
+      <% end %>
+      <div class ="comment__lists">
+        <% @comments.each do |comment| %>
+          <div class ="comment__list">
+            <%= link_to comment.user.nickname, user_path(comment.user_id), class:"form__btn" %>
+            <%= comment.content %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>

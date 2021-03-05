@@ -1,0 +1,17 @@
+<div class="card">
+  <div class="card__body">
+    <p>
+      <% if post.image.present? %>
+        <%= image_tag post.image, class:"card__img" %>
+      <% else %>
+        <%= image_tag "https://lh4.googleusercontent.com/proxy/XNaK4AZoo-Sk1tQc18XR9eIe9ZLAoshLnF02KFTIijP7F683JOYYn0ZaVPVdiWUc_UrVrcVFauSwz7kN4mdQk4a7bjrIj4IgxQ=s0-d", class:"card__img" %>
+      <% end %>
+    </p>
+    <p>
+      <%= link_to post.title, post_path(post), class:"card__title" %>
+    </p>
+    <p>
+      <%= link_to post.user.nickname, user_path(post.user.id), class:"card__user_name" %>
+    </p>
+  </div>
+</div>
