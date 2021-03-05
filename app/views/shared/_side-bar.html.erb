@@ -1,14 +1,14 @@
 <div class="side-bar">
   <ul class="side-bar__nav">
     <li>
-      <%= link_to "トップページ", root_path , class: "side-bar__nav--btn" %>
+      <%= link_to "トップページ", "#" , class: "side-bar__nav--btn" %>
     </li>
     <% if user_signed_in? %>
       <li>
         <%= link_to "マイページ", user_path(current_user.id), class: "side-bar__nav--btn" %>
       </li>
       <li>
-        <%= link_to "記事一覧", "#" , class: "side-bar__nav--btn" %>
+        <%= link_to "記事一覧", root_path , class: "side-bar__nav--btn" %>
       </li>
       <li>
         <%= link_to "掲示板", chats_path, class: "side-bar__nav--btn" %>
