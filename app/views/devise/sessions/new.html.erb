@@ -18,6 +18,9 @@
           <%= f.submit "Log in", class:"form__btn" %>
         </div>
       <% end %>
+      <div class="field">
+        <%= link_to 'ゲストユーザーログイン', users_guest_sign_in_path, method: :post, class:"form__btn" %>
+      </div>
     </div>
   </div>
 </div>
