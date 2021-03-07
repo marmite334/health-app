@@ -11,4 +11,13 @@ class User < ApplicationRecord
   end
   has_many :post
   has_many :comments
+
+  def self.guest
+    find_or_create_by(email: Faker::Internet.email ) do |user|
+      user.nickname = 'ゲストユーザー'
+      user.password = Faker::Alphanumeric.alphanumeric(number: 6, min_alpha: 1, min_numeric: 1)
+      user.birth_date = Faker::Date.birthday(min_age: 5, max_age: 90)
+    end
+  end
+  
 end
