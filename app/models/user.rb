@@ -15,7 +15,7 @@ class User < ApplicationRecord
   def self.guest
     find_or_create_by(email: 'lenny@lowe.name' ) do |user|
       user.nickname = 'ゲストユーザー'
-      user.password = 'm3f46c'
+      user.password = Faker::Alphanumeric.alphanumeric(number: 6, min_alpha: 1, min_numeric: 1)
       user.birth_date = '2008-09-05'
     end
   end
