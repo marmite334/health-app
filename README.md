@@ -34,7 +34,6 @@
 * SCSS
 * JavaScript
 
-/Users/akitatoshihiro/projects/health-app/er.png
 
 
 # usersテーブル
