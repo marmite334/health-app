@@ -29,6 +29,7 @@
 * Ruby 2.6.5
 * Ruby on Rails 6.0.0
 * MySQL2 0.4.4
+
 フロントエンド
 * HTML
 * SCSS
