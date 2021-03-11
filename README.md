@@ -43,7 +43,7 @@
 * 日付フォーマットの日本時間化
 
 # ER図
-![あ] (https://user-images.githubusercontent.com/68127550/110750869-80056d80-8286-11eb-8973-0a02bb8ff9b5.png)
+![あ](https://user-images.githubusercontent.com/68127550/110750869-80056d80-8286-11eb-8973-0a02bb8ff9b5.png"ER図")
 
 ### usersテーブル
 | Column             | Type   | Options                  |
