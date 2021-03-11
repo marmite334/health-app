@@ -42,10 +42,10 @@
 * 記事検索機能
 * 日付フォーマットの日本時間化
 
-https://gyazo.com/75d117d72156a030c6dedeea72a8aead
-https://gyazo.com/75d117d72156a030c6dedeea72a8aead
+# ER図
+https://user-images.githubusercontent.com/68127550/110750869-80056d80-8286-11eb-8973-0a02bb8ff9b5.png
 
-# usersテーブル
+### usersテーブル
 | Column             | Type   | Options                  |
 |--------------------|--------|--------------------------|
 | nickname           | string | null:false               |
@@ -58,7 +58,7 @@ https://gyazo.com/75d117d72156a030c6dedeea72a8aead
 * _ has_many :chat_users
 * _ has_many :comments
 
-# postsテーブル
+### postsテーブル
 | Column      | Type       | Options                       |
 |-------------|------------|-------------------------------|
 | title       | string     | null:false                    |
@@ -70,7 +70,7 @@ https://gyazo.com/75d117d72156a030c6dedeea72a8aead
 * _ belongs_to :user
 * _ has_many :comments
 
-# commentsテーブル
+### commentsテーブル
 | Column  | Type       | Options                       |
 |---------|------------|-------------------------------|
 | content | text       | null:false                    |
@@ -81,7 +81,7 @@ https://gyazo.com/75d117d72156a030c6dedeea72a8aead
 * _ belongs_to :user
 * _ belongs_to :post
 
-# chat_usersテーブル
+### chat_usersテーブル
 | Column      | Type       | Options                       |
 |-------------|------------|-------------------------------|
 | user_id     | references | null:false, foreign_key: true |
@@ -92,7 +92,7 @@ https://gyazo.com/75d117d72156a030c6dedeea72a8aead
 * _ belongs_to :user
 * _ belongs_to :chat
 
-# chatsテーブル
+### chatsテーブル
 | Column | Type    | Options    |
 |--------|---------|------------|
 | name   | string  | null:false |
@@ -102,7 +102,7 @@ https://gyazo.com/75d117d72156a030c6dedeea72a8aead
 * _ has_many :messages
 
 
-# messagesテーブル
+### messagesテーブル
 | Column  | Type       | Options                       |
 |---------|------------|-------------------------------|
 | content | text       | null:false                    |
