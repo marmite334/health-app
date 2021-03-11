@@ -1,6 +1,6 @@
 # README
 ### Health App
-アプリURL：health-app334.herokuapp.com
+アプリURL：https://health-app334.herokuapp.com/
 
 
 # usersテーブル
