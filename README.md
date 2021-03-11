@@ -24,7 +24,7 @@
 
 該当ユーザーが登録した情報と投稿した記事が閲覧できるようになっています。
 
-# 開発環境
+### 開発環境
 バックエンド
 * Ruby 2.6.5
 * Ruby on Rails 6.0.0
@@ -35,7 +35,15 @@
 * SCSS
 * JavaScript
 
+### 今後実装したい機能
+* posts/indexファイルのページネーション機能
+* トップページ
+* 最新ニューズの取得
+* 記事検索機能
+* 日付フォーマットの日本時間化
 
+https://gyazo.com/75d117d72156a030c6dedeea72a8aead
+https://gyazo.com/75d117d72156a030c6dedeea72a8aead
 
 # usersテーブル
 | Column             | Type   | Options                  |
